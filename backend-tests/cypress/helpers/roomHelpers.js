@@ -50,10 +50,10 @@ function createRandomRoomPutPayload(id){
     const fakeAvailable = faker.random.boolean()
 
     const featureSelections = ["balcony","ensuite","sea_view","penthouse"]
-    const randomFeature = [featureSelections[faker.random.number({min:0, max:3})]]
-    
+    const randomFeature = [featureSelections[faker.random.number({min:0, max:featureSelections.length-1})]]    
+
     const categorySelections = ["single", "double","ensuite"]
-    const randomCategory = categorySelections[faker.random.number({min:0, max:2})] 
+    const randomCategory = categorySelections[faker.random.number({min:0, max:categorySelections.length-1})] 
 
     const payload = {
         "id":id,
@@ -294,7 +294,6 @@ module.exports = {
     getRequestAllRooms,
     createRoomRequest,
     createRoomRequestAndDelete,
-    createRoomRequestAndUpdate,
     createRoomRequestAndUpdate,
     createRoomRequestUpdateAndDelete
 }
