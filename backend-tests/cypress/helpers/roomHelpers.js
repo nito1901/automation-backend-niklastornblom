@@ -255,10 +255,46 @@ function putRequestAfterGet(cy){
     }))
 }
 
+function createRoomRequestUpdateAndDelete(cy){
+    cy.authenticateSession().then((response =>{
+        let fakeRoomPayload = createRandomRoomPayload()
+
+        cy.request({
+            method: "POST",
+            url: ENDPOINT_POST_ROOM,
+            headers:{
+                'X-User-Auth': JSON.stringify(Cypress.env().loginToken),
+                'Content-Type': 'application/json'
+            },
+            body:fakeRoomPayload
+        }).then((response =>{
+            expect(JSON.stringify(response.body.number)).to.have.string(fakeRoomPayload.number)
+            expect(JSON.stringify(response.body.features)).to.have.string(fakeRoomPayload.features)
+            expect(JSON.stringify(response.body.category)).to.have.string(fakeRoomPayload.category)
+            expect(JSON.stringify(response.body.floor)).to.have.string(fakeRoomPayload.floor)
+            expect(JSON.stringify(response.body.available)).to.have.string(fakeRoomPayload.available)
+            expect(JSON.stringify(response.body.price)).to.have.string(fakeRoomPayload.price)
+        }))
+
+        getRequestAllRoomsAssertion(cy, 
+            fakeRoomPayload.features,
+            fakeRoomPayload.category,
+            fakeRoomPayload.number,
+            fakeRoomPayload.floor,
+            fakeRoomPayload.available,
+            fakeRoomPayload.price
+            )
+            putRequestAfterGet(cy)
+            deleteRequestAfterGet(cy)
+    }))
+}
+
+
 module.exports = {
     getRequestAllRooms,
     createRoomRequest,
     createRoomRequestAndDelete,
     createRoomRequestAndUpdate,
-    createRoomRequestAndUpdate
+    createRoomRequestAndUpdate,
+    createRoomRequestUpdateAndDelete
 }

@@ -20,4 +20,7 @@ describe('backend test suite', function(){
     it('TC04 - Create room and update it', function(){
         roomHelpers.createRoomRequestAndUpdate(cy)
     })
+    it.only('TC05 - Create room update and delete it', function(){
+        roomHelpers.createRoomRequestUpdateAndDelete(cy)
+    })
 })
