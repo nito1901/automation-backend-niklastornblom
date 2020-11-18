@@ -1,0 +1,157 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2020-11-18T11:19:23.624Z",
+    "end": "2020-11-18T11:19:26.175Z",
+    "duration": 2551,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "a590c87f-b317-471e-8d1e-064edea2629a",
+      "title": "",
+      "fullFile": "cypress/integration/backend-auth.spec.js",
+      "file": "cypress/integration/backend-auth.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "e4360b33-58d4-4c65-8c41-0013a7f0a391",
+          "title": "backend test suite",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "TC01 - login and logout",
+              "fullTitle": "backend test suite TC01 - login and logout",
+              "timedOut": null,
+              "duration": 663,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.authenticateSession();\ncy.endSession();",
+              "err": {},
+              "uuid": "16112679-7a67-422d-8725-ed58566b9c64",
+              "parentUUID": "e4360b33-58d4-4c65-8c41-0013a7f0a391",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC02 - Create a new room",
+              "fullTitle": "backend test suite TC02 - Create a new room",
+              "timedOut": null,
+              "duration": 596,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "roomHelpers.createRoomRequest(cy);",
+              "err": {},
+              "uuid": "1bfcd005-0493-4902-affa-6d01a6115754",
+              "parentUUID": "e4360b33-58d4-4c65-8c41-0013a7f0a391",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC03 - Create room and delete it",
+              "fullTitle": "backend test suite TC03 - Create room and delete it",
+              "timedOut": null,
+              "duration": 602,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "roomHelpers.createRoomRequestAndDelete(cy);",
+              "err": {},
+              "uuid": "569728f8-4c6d-4029-b27b-95786d2267ac",
+              "parentUUID": "e4360b33-58d4-4c65-8c41-0013a7f0a391",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC04 - Create room and update it",
+              "fullTitle": "backend test suite TC04 - Create room and update it",
+              "timedOut": null,
+              "duration": 609,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "roomHelpers.createRoomRequestAndUpdate(cy);",
+              "err": {},
+              "uuid": "4a97a807-0de3-429e-b633-f6a8224aee19",
+              "parentUUID": "e4360b33-58d4-4c65-8c41-0013a7f0a391",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "16112679-7a67-422d-8725-ed58566b9c64",
+            "1bfcd005-0493-4902-affa-6d01a6115754",
+            "569728f8-4c6d-4029-b27b-95786d2267ac",
+            "4a97a807-0de3-429e-b633-f6a8224aee19"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2470,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.2.1"
+    },
+    "marge": {
+      "options": null,
+      "version": "5.1.0"
+    }
+  }
+}
