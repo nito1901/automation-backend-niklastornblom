@@ -4,21 +4,6 @@ const ENDPOINT_GET_ROOMS = 'http://localhost:3000/api/rooms'
 const ENDPOINT_POST_ROOM = 'http://localhost:3000/api/room/new'
 const ENDPOINT_GET_ROOM = 'http://localhost:3000/api/room/'
 
-function getRequestAllRooms(cy){
-    cy.authenticateSession().then((response =>{
-        cy.request({
-            method: "GET",
-            url: ENDPOINT_GET_ROOMS,
-            headers:{
-                'X-User-Auth': JSON.stringify(Cypress.env().loginToken),
-                'Content-Type': 'application/json'
-            },
-        }).then((response =>{
-            const responseAsString = JSON.stringify(response)
-
-        }))
-    }))
-}
 
 function createRandomRoomPayload(){
     const fakeRoomNumber = faker.random.number({min:1, max:9999})
@@ -65,6 +50,22 @@ function createRandomRoomPutPayload(id){
         "price":fakePrice
     }
     return payload
+}
+
+function getRequestAllRooms(cy){
+    cy.authenticateSession().then((response =>{
+        cy.request({
+            method: "GET",
+            url: ENDPOINT_GET_ROOMS,
+            headers:{
+                'X-User-Auth': JSON.stringify(Cypress.env().loginToken),
+                'Content-Type': 'application/json'
+            },
+        }).then((response =>{
+            const responseAsString = JSON.stringify(response)
+
+        }))
+    }))
 }
 
 function createRoomRequest(cy){

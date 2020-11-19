@@ -32,17 +32,17 @@ Cypress.Commands.add('authenticateSession', () => {
         "username":"tester01",
         "password":"GteteqbQQgSr88SwNExUQv2ydb7xuf8c"
     }
-cy.request({
-    method: "POST",
-    url: ENDPOINT_LOGIN,
-    headers:{
-        'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(userCredentials)
-}).then((response => {
-    expect(response.status).to.eq(200)
-    Cypress.env({loginToken:response.body})
-}))
+    cy.request({
+        method: "POST",
+        url: ENDPOINT_LOGIN,
+        headers:{
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(userCredentials)
+    }).then((response => {
+        expect(response.status).to.eq(200)
+        Cypress.env({loginToken:response.body})
+    }))
 })
 
 Cypress.Commands.add('endSession', () => {
