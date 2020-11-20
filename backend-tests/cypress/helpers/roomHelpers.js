@@ -296,5 +296,7 @@ module.exports = {
     createRoomRequest,
     createRoomRequestAndDelete,
     createRoomRequestAndUpdate,
-    createRoomRequestUpdateAndDelete
+    createRoomRequestUpdateAndDelete,
+    createRandomRoomPayload,
+    getRequestAllRoomsAssertion
 }

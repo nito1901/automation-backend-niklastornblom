@@ -27,10 +27,10 @@ function getRequestAllClientsAssertion(cy, name, email, telephone){
             'Content-Type': 'application/json'
         },
     }).then((response =>{
-        const responseAsString = JSON.stringify(response)
-        expect(responseAsString).to.have.string(name)
-        expect(responseAsString).to.have.string(email)
-        expect(responseAsString).to.have.string(telephone)
+        expect(JSON.stringify(response.body[response.body.length -1].name)).to.have.string(name)
+        expect(JSON.stringify(response.body[response.body.length -1].email)).to.have.string(email)
+        expect(JSON.stringify(response.body[response.body.length -1].telephone)).to.have.string(telephone)
+
     }))
 }
 
@@ -63,8 +63,10 @@ function createClientRequest(cy){
             },
             body:fakeClientPayload
         }).then((response =>{
-            const responseAsString = JSON.stringify(response)
-            expect(responseAsString).to.have.string(fakeClientPayload.name)
+            expect(JSON.stringify(response.body.name)).to.have.string(fakeClientPayload.name)
+            expect(JSON.stringify(response.body.email)).to.have.string(fakeClientPayload.email)
+            expect(JSON.stringify(response.body.telephone)).to.have.string(fakeClientPayload.telephone)
+
         }))
 
         getRequestAllClientsAssertion(cy, 
@@ -137,5 +139,7 @@ function confirmDeleteAfterGet(cy, id){
 module.exports = {
     createClientRequest,
     getRequestAllClients,
-    createClientRequestAndDelete
+    createClientRequestAndDelete,
+    createRandomClientPayload,
+    getRequestAllClientsAssertion
 }
