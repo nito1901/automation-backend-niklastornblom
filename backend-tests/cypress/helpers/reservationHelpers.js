@@ -13,7 +13,6 @@ const ENDPOINT_POST_ROOM = 'http://localhost:3000/api/room/new'
 
 const ENDPOINT_GET_RESERVATIONS = 'http://localhost:3000/api/reservations'
 const ENDPOINT_POST_RESERVATION = 'http://localhost:3000/api/reservation/new'
-const ENDPOINT_GET_RESERVATION = 'http://localhost:3000/api/reservation/'
 
 function createRandomReservationPayload(){
 
@@ -25,11 +24,20 @@ function createRandomReservationPayload(){
 
     const numberOfBills = getRequestNumberOfBills(cy)
     const randomBill = faker.random.number({min:1, max:numberOfBills})
+//
+    let dateYear = faker.random.number({min: 2020, max: 2021})
+    let dateMonth = faker.random.number({min: 1, max: 12})
+    let dateDay = faker.random.number({min: 1, max: 28})
 
-    const randomStart = "2020-10-15"
-    const randomEnd = "2020-10-20"
-
-    cy.log(randomBill + "")
+    if(dateMonth<10){
+        dateMonth = '0' + dateMonth
+    }
+    if(dateDay<10){
+        dateDay = '0' + dateDay
+    }
+    
+    const randomStart = dateYear + '-' + dateMonth + '-' + dateDay
+    const randomEnd = dateYear + '-' + dateMonth + '-' + dateDay
 
     const payload = {
         "client":randomClient,
